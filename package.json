@@ -3,6 +3,10 @@
     "displayName": "VSOP Language Support",
     "description": "Language support for vsop files",
     "version": "0.0.1",
+    "publisher": "DavidBirtles",
+    "author": {
+        "name": "David Birtles"
+    },
     "engines": {
         "vscode": "^1.61.0"
     },
