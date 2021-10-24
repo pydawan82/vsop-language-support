@@ -1,0 +1,86 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"name": "vsop",
+	"patterns": [
+		{
+			"include": "#comments"
+		},
+		{
+			"include": "#keywords"
+		},
+		{
+			"include": "#numbers"
+		},
+		{
+			"include": "#strings"
+		}
+	],
+	"repository": {
+		"comments": {
+			"patterns": [
+				{
+					"name": "comment.block",
+					"match": "\\(\\*.*?\\*\\)"
+				}
+			]
+		},
+		"keywords": {
+			"patterns": [
+				{
+					"name": "keyword.control",
+					"match": "\\b(if|then|else|while|do)\\b"
+				},
+				{
+					"name": "constant.other.bool",
+					"match": "\\b(true|false)\\b"
+				},
+				{
+					"name": "constant.other.unit",
+					"match": "\\(\\)"
+				},
+				{
+					"name": "keyword.other",
+					"match": "\\b(class|extends|let|self)\\b"
+				},
+				{
+					"name": "keyword.operator.new",
+					"match": "\\b(new)\\b"
+				},
+				{
+					"name": "constant.type",
+					"match": "\\b(bool|unit|int32|string)\\b"
+				},
+				{
+					"name": "keyword.operator",
+					"match": "\\b(and|not)\\b"
+				},
+				{
+					"name": "keyword.operator",
+					"match": "(\\+|-|\\*|/|\\^|\\.|=|<|<=|<-)"
+				}
+			]
+		},
+		"numbers": {
+			"name": "constant.numeric",
+			"patterns": [
+				{
+					"match": "\\b[0-9]+\\b"
+				}, {
+					"match": "\\b0x[0-9a-fA-F]+\\b"
+				}
+			]
+		},
+		"strings": {
+			"name": "string.quoted.double",
+			"begin": "\"",
+			"end": "\"",
+			"patterns": [
+				{
+					"name": "constant.character.escape",
+					"match": "\\\\."
+				}
+			]
+		}
+	},
+	"scopeName": "source.vsop"
+}

@@ -1,0 +1,30 @@
+{
+    "name": "vsop-language-support",
+    "displayName": "VSOP Language Support",
+    "description": "Language support for vsop files",
+    "version": "0.0.1",
+    "engines": {
+        "vscode": "^1.61.0"
+    },
+    "categories": [
+        "Programming Languages"
+    ],
+    "contributes": {
+        "languages": [
+            {
+                "id": "vsop",
+                "extensions": [
+                    ".vsop"
+                ],
+                "configuration": "./language-configuration.json"
+            }
+        ],
+        "grammars": [
+            {
+                "language": "vsop",
+                "scopeName": "source.vsop",
+                "path": "./syntaxes/vsop.tmLanguage.json"
+            }
+        ]
+    }
+}
