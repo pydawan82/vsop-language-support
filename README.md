@@ -14,6 +14,17 @@ Enjoy your compiler project using VSOP.
 
 Initial release
 
+
+### 0.0.1
+
+- Keyword highlighting
+- String highlighting
+
 ### 1.0.0
 
-Initial release of the extension. Only token highlighting available.
+- Added type highlighting
+- Added function highlighting
+- Added number highlighting
+- Added variable highlighting
+- Added field highlighting
+- Improved string escape sequence highlighting, illegal escape sequences are now red
