@@ -2,7 +2,7 @@
     "name": "vsop-language-support",
     "displayName": "VSOP Language Support",
     "description": "Language support for vsop files",
-    "version": "0.0.1",
+    "version": "1.0.0",
     "publisher": "DavidBirtles",
     "author": {
         "name": "David Birtles"

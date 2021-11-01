@@ -6,13 +6,28 @@
 			"include": "#comments"
 		},
 		{
-			"include": "#keywords"
+			"include": "#class"
+		},
+		{
+			"include": "#function"
+		},
+		{
+			"include": "#field"
 		},
 		{
 			"include": "#numbers"
 		},
 		{
 			"include": "#strings"
+		},
+		{
+			"include": "#expression"
+		},
+		{
+			"include": "#keywords"
+		},
+		{
+			"include": "#variable"
 		}
 	],
 	"repository": {
@@ -21,37 +36,59 @@
 				{
 					"name": "comment.block",
 					"match": "\\(\\*.*?\\*\\)"
+				},
+				{
+					"name": "comment.line",
+					"match": "//.*"
 				}
 			]
 		},
+		"class": {
+			"match": "(class) (\\w+) ((extends) (\\w+))?",
+			"captures": {
+				"1": {
+					"name": "storage.type"
+				},
+				"2": {
+					"name": "entity.name.class"
+				},
+				"4": {
+					"name": "keyword"
+				},
+				"5": {
+					"name": "entity.name.class"
+				}
+			}
+		},
 		"keywords": {
+			"name": "keyword",
 			"patterns": [
 				{
 					"name": "keyword.control",
 					"match": "\\b(if|then|else|while|do)\\b"
 				},
 				{
-					"name": "constant.other.bool",
+					"name": "constant.language",
 					"match": "\\b(true|false)\\b"
 				},
 				{
-					"name": "constant.other.unit",
+					"name": "constant.language",
 					"match": "\\(\\)"
 				},
 				{
 					"name": "keyword.other",
-					"match": "\\b(class|extends|let|self)\\b"
+					"match": "\\b(class|extends|let|in|self)\\b"
 				},
 				{
 					"name": "keyword.operator.new",
 					"match": "\\b(new)\\b"
 				},
 				{
-					"name": "constant.type",
+					"name": "entity.name.type",
 					"match": "\\b(bool|unit|int32|string)\\b"
 				},
 				{
-					"name": "keyword.operator",
+					"name": "keyword.other",
 					"match": "\\b(and|not)\\b"
 				},
 				{
@@ -60,13 +97,51 @@
 				}
 			]
 		},
+		"type": {
+			"name": "vsop.type",
+			"match": "([A-Z][A-Za-z]*|unit|bool|int32|string)"
+		},
+		"id": {
+			"name": "variable.parameter",
+			"match": "[a-z][A-Za-z]*"
+		},
+		"formal": {
+			"name": "vsop.formal",
+			"match": "\\s*[a-z][A-Za-z]*\\s*:\\s*([A-Z][A-Za-z]*|unit|bool|int32|string)\\s*"
+		},
+		"function": {
+			"name": "vsop.function",
+			"match": "(\\w+)\\s*\\((\\s*(\\w+)*\\s*:\\s*(\\w+)\\s*(,\\s*(\\w+)*\\s*:\\s*([A-Z]\\w+*)\\s*)*)?\\)\\s*:\\s*(\\w+)",
+			"captures": {
+				"1": {
+					"name": "entity.name.function"
+				},
+				"3": {
+					"name": "variable.name"
+				},
+				"4": {
+					"name": "entity.name.type"
+				},
+				"6": {
+					"name": "variable.name"
+				},
+				"7": {
+					"name": "entity.name.type"
+				},
+				"8": {
+					"name": "entity.name.type"
+				}
+			}
+		},
 		"numbers": {
-			"name": "constant.numeric",
 			"patterns": [
 				{
-					"match": "\\b[0-9]+\\b"
-				}, {
-					"match": "\\b0x[0-9a-fA-F]+\\b"
+					"name": "constant.numeric",
+					"match": "0x[0-9a-fA-F]+"
+				},
+				{
+					"name": "constant.numeric",
+					"match": "[0-9]+"
 				}
 			]
 		},
@@ -77,9 +152,53 @@
 			"patterns": [
 				{
 					"name": "constant.character.escape",
+					"match": "\\\\([btnr\\\"\\\\]|x[0-9a-fA-F][0-9a-fA-F])"
+				},
+				{
+					"name": "invalid",
 					"match": "\\\\."
 				}
 			]
+		},
+		"field": {
+			"match": "(\\w+)\\s*:\\s*(\\w+)",
+			"captures": {
+				"1": {
+					"name": "variable"
+				},
+				"2": {
+					"name": "entity.name.type"
+				}
+			}
+		},
+		"expression": {
+			"patterns": [
+				{
+					"name": "vsop.call",
+					"match": "(\\w+)\\s*\\(",
+					"captures": {
+						"1": {
+							"name": "entity.name.function"
+						}
+					}
+				},
+				{
+					"name": "vsop.new",
+					"match": "(new)\\s*(\\w+)",
+					"captures": {
+						"1": {
+							"name": "keyword.operator.new"
+						},
+						"2": {
+							"name": "entity.name.type"
+						}
+					}
+				}
+			]
+		},
+		"variable": {
+			"name": "variable.name",
+			"match": "\\w+"
 		}
 	},
 	"scopeName": "source.vsop"
