@@ -2,11 +2,12 @@
     "name": "vsop-language-support",
     "displayName": "VSOP Language Support",
     "description": "Language support for vsop files",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "publisher": "DavidBirtles",
     "repository": {
         "url": "https://github.com/pydawan82/vsop-language-support"
     },
+    "icon": "icon.png",
     "author": {
         "name": "David Birtles"
     },

@@ -28,3 +28,7 @@ Initial release
 - Added variable highlighting
 - Added field highlighting
 - Improved string escape sequence highlighting, illegal escape sequences are now red
+
+###
+
+- Added a cute lil icon UwU

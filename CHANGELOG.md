@@ -12,3 +12,7 @@
 - Added variable coloration
 - Added field coloration
 - Improved string escape sequence tokenization. Illegal escape sequences are now red.
+
+## [1.0.1]
+
+- Added an icon UwU
