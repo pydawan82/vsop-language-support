@@ -32,3 +32,4 @@ Initial release
 ###
 
 - Added a cute lil icon UwU
+- Added MIT license
